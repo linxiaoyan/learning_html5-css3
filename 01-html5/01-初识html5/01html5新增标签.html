@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>html5新增标签</title>
+</head>
+<body>
+<hgroup>
+  <h1>标题1</h1>
+  <h2>标题2</h2>
+</hgroup>
+
+<nav>
+  <a href=“#”>链接</a>
+  <a href=“#”>链接</a>
+</nav>
+<nav>
+  <p><a href=“#”>链接</a></p>
+  <p><a href=“#”>链接</a></p>
+</nav>
+<nav>
+  <h2>标题</h2>
+  <ul>
+    <li><a href=“#”>链接</a></li>
+    <li><a href=“#”>链接</a></li>
+  </ul>
+</nav>
+
+<figure>
+  <img src=“google.png”/>
+  <figcaption>这是google图标</figcaption>
+</figure>
+
+<p>我们在每天早上<time>9:00</time>开始营业。</p>
+<p>我在<time datetime="2008-02-14">情人节</time>有个约会。</p>
+
+<input type="text" list="valList" />
+<datalist id="valList">
+  <option value="javascript">javascript</option>
+  <option value="html">html</option>
+  <option value="css">css</option>
+</datalist>
+
+<details>
+  <summary>google</summary>
+  <p>世界搜索引擎巨头</p>
+</details>
+
+<dialog open>
+  <dt>老师</dt>
+  <dd>2+2 等于？</dd>
+  <dt>学生</dt>
+  <dd>4</dd>
+  <dt>老师</dt>
+  <dd>答对了！</dd>
+</dialog>
+
+<br />
+
+<address>深圳市南山区</address>
+
+<mark>mark</mark>
+
+<form action="http://www.baidu.com" method="get">
+  用户: <input type="text" name="usr_name" />
+  公钥: <keygen name="security" />
+  <input type="submit" />
+</form>
+
+<progress max="100" value="30">
+  <span>76</span>%
+</progress>
+
+<script>
+/*
+01. <header></header> 页眉
+主要用于页面的头部的信息介绍，也可用于板块头部
+
+02. <hgroup></hgroup> 页面上的一个标题组合
+一个标题和一个子标题，或者标语的组合
+<hgroup>
+  <h1>标题1</h1>
+  <h2>标题2</h2>
+</hgroup>
+
+03. <nav></nav> 导航（包含链接的的一个列表）
+<nav>
+  <a href=“#”>链接</a>
+  <a href=“#”>链接</a>
+</nav>
+<nav>
+  <p><a href=“#”>链接</a></p>
+  <p><a href=“#”>链接</a></p>
+</nav>
+<nav>
+  <h2>标题</h2>
+  <ul>
+    <li><a href=“#”>链接</a></li>
+    <li><a href=“#”>链接</a></li>
+</ul>
+</nav>
+
+04. <footer></footer>页脚  页面的底部或者版块底部
+
+05. <section></section> 页面上的版块
+用于划分页面上的不同区域,或者划分文章里不同的节
+
+06. <article></article > 用来在页面中表示一套结构完整且独立的内容部分
+可以用来呈现论坛的一个帖子，杂志或报纸中的一篇文章，一篇博客，用户提交的评论内容，可互动的页面模块挂件等。
+
+07. <aside></aside> 元素标签可以包含与当前页面或主要内容相关的引用、侧边栏、广告、nav元素组，以及其他类似的有别与主要内容的部分
+--aside的内容应该与article 的内容相关。
+--被包含在<article>中作为主要内容的附属信息部分，其中的内容以是与当前文章有关的引用、词汇列表等
+--在<article>之外使用，作为页面或站点全局的附属信息部分；最典型的形式是侧边栏(sidebar)，其中的内容可以是友情链接、附属导航或广告单元等。
+
+08. <figure></figure> 用于对元素进行组合。一般用于图片或视频
+
+09. <figcaption></figcaption> figure的子元素，用于对figure的内容进行说明
+<figure>
+  <img src=“google.png”/>(注意没有alt)
+  <figcaption>这是google图标</figcaption>
+</figure>
+
+10. <time></time> 用来表现时间或日期
+<p>我们在每天早上<time>9:00</time>开始营业。</p>
+<p>我在<time datetime="2008-02-14">情人节</time>有个约会。</p>
+
+11. <datalist></datalist> 选项列表，与input元素配合使用，来定义input可能的值。
+<input type="text" list="valList" />
+<datalist id="valList">
+  <option value="javascript">javascript</option>
+  <option value="html">html</option>
+  <option value="css">css</option>
+</datalist>
+
+12. <details></details> 用于描述文档或文档某个部分的细节
+--该元素用于摘录引用等，用于与页面的主要内容区分开的其他内容
+--Open 属性默认展开
+
+13. <summary></summary> details元素的标题
+<details>
+  <summary>google</summary>
+  <p>世界搜索引擎巨头</p>
+</details>
+
+14. <dialog></dialog> 定义一段对话
+<dialog>
+  <dt>老师</dt>
+  <dd>2+2 等于？</dd>
+  <dt>学生</dt>
+  <dd>4</dd>
+  <dt>老师</dt>
+  <dd>答对了！</dd>
+</dialog>
+
+15. <address></address> 定义文章或页面作者的详细联系信息
+
+16. <mark></mark> 需要标记的词或句子
+
+17. <keygen>给表单添加一个公钥
+<form action="http://www.baidu.com" method="get">
+用户: <input type="text" name="usr_name" />
+公钥: <keygen name="security" />
+<input type="submit" />
+</form>
+
+17. <progress></progress> 定义进度条
+<progress max="100" value="76">
+<span>76</span>%
+</progress>
+
+*/
+</script>
+</body>
+</html>
