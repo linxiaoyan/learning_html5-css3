@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+<form>
+  用户名：<input id="name" type="text" placeholder="请输入6-10个字符" name="user" required><br/>
+  邮箱：<input id="email" type="email"/><br/>
+  密码：<input id="password" type="text" placeholder="请输入6-10个字符" name="password"><br/>
+  QQ：<input id="qq" type="text"  placeholder="请输入5-10位数字" pattern="^[1-9]\d{4,10}"><br/>
+
+  <input type="submit" value="提交">
+  <input type="submit" value="保存到草稿箱" formaction="" formnovalidate>
+</form>
+
+<script>
+window.onload = function() {
+  /*
+  表单验证
+  validity对象，通过下面的valid可以查看验证是否通过，如果八种验证都通过返回true，一种验证失败返回false
+  oText.addEventListener("invalid",fn1,false);
+  ev.preventDefault();
+  valueMissing:     输入值为空时
+  typeMismatch:     控件值与预期类型不匹配
+  patternMismatch:  输入值不满足pattern正则
+  tooLong:          超过maxLength最大限制
+  rangeUnderflow:   验证的range最小值
+  rangeOverflow:    验证的range最大值
+  stepMismatch:     验证range 的当前值是否符合min、max及step的规则
+  customError       不符合自定义验证
+  setCustomValidity(); 自定义验证
+  formnovalidate:   关闭表单验证
+  */
+
+  var oName = document.getElementById('name');
+  var oEmail = document.getElementById('email');
+  var oPassword = document.getElementById('password');
+  var oQQ = document.getElementById('qq');
+
+  oName.addEventListener('invalid', fn, false);
+  oName.addEventListener('invalid', fnCustomValidity, false);
+  oEmail.addEventListener('invalid', fn, false);
+  oPassword.addEventListener('invalid', fn, false);
+  oQQ.addEventListener('invalid', fn, false);
+
+  function fn(ev) {
+    var oEvent = ev || event;
+
+    if (this.validity.valueMissing) {
+      alert('name valueMissing');
+      alert(this.validity.valueMissing);
+    } else if (this.validity.typeMismatch) {
+      alert('email typeMismatch');
+      alert(this.validity.typeMismatch);
+    } else if (this.validity.patternMismatch) {
+      alert('qq patternMismatch');
+      alert(this.validity.patternMismatch);
+    }
+
+    alert(this.validity.valid);
+    oEvent.preventDefault();
+  }
+
+  oName.oninput = function() {
+    if (this.value == '敏感词') {
+      this.setCustomValidity('请不要输入敏感词'); //多数浏览器不支持
+    } else {
+      this.setCustomValidity('');
+    }
+  };
+
+  function fnCustomValidity(ev) {
+    var oEvent = ev || event;
+    alert(this.validity.customError);
+    oEvent.preventDefault();
+  }
+};
+</script>
+</body>
+</html>
