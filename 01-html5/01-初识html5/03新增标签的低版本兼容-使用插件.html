@@ -13,6 +13,12 @@ aside {display:block; position:absolute; width:200px; height:300px; background:g
 section {display:block; margin-left:210px; height:300px; background:green;}
 footer {display:block; height:100px;background:deepskyblue;}
 </style>
+
+<script>
+window.onload = function() {
+  document.createElement('details');
+}
+</script>
 </head>
 <body>
 <header>页面头部</header>
@@ -26,6 +32,7 @@ footer {display:block; height:100px;background:deepskyblue;}
       <option value="css">css</option>
     </datalist>
 
+    <!--ff和ie不支持details标签-->
     <details>
       <summary>google</summary>
       <p>世界搜索引擎巨头</p>
