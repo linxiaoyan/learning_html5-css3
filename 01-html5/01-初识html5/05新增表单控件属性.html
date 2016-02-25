@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>新增表单控件属性</title>
+</head>
+<body>
+<form action="http://www.baidu.com">
+  <!--
+  autocomplete 是否保存用户输入
+  autofocus    获取默认焦点
+  required     必须输入
+  pattern      正则验证
+  formaction   submit里提交地址
+  -->
+  用户名：<input type="text" placeholder="请输入6-10个字符" name="user" autocomplete="off" required>
+  密码：<input type="text" placeholder="请输入6-10个字符" name="user" autocomplete="off" autofocus required>
+  QQ：<input type="text"  placeholder="请输入5-10位数字" pattern="^[1-9]\d{4,10}">
+
+  <input type="submit" value="提交">
+  <input type="submit" value="提交到360" formaction="http://www.360.com">
+</form>
+</body>
+</html>
