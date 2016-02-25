@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>新增标签的低版本兼容-使用插件</title>
+  <script src="../../js/html5shiv.js"></script>
+
+<style>
+body {margin:0;}
+header {display:block; height:100px; background:orangered;}
+article {display:block; position:relative; padding:10px; background:blue; overflow:hidden;}
+aside {display:block; position:absolute; width:200px; height:300px; background:greenyellow;}
+section {display:block; margin-left:210px; height:300px; background:green;}
+footer {display:block; height:100px;background:deepskyblue;}
+</style>
+</head>
+<body>
+<header>页面头部</header>
+<article>
+  <aside>侧边栏</aside>
+  <section>
+    <input type="text" list="valList" />
+    <datalist id="valList">
+      <option value="javascript">javascript</option>
+      <option value="html">html</option>
+      <option value="css">css</option>
+    </datalist>
+
+    <details>
+      <summary>google</summary>
+      <p>世界搜索引擎巨头</p>
+    </details>
+
+    <progress max="100" value="30">
+      <span>76</span>%
+    </progress>
+  </section>
+</article>
+<footer>页面底部</footer>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>新增标签的低版本兼容</title>
+
+<style>
+body {margin:0;}
+header {display:block; height:100px; background:orangered;}
+article {display:block; position:relative; padding:10px; background:blue; overflow:hidden;}
+aside {display:block; position:absolute; width:200px; height:300px; background:greenyellow;}
+section {display:block; margin-left:210px; height:300px; background:green;}
+footer {display:block; height:100px;background:deepskyblue;}
+</style>
+<script>
+window.onload = function() {
+  document.createElement("header");
+  document.createElement("article");
+  document.createElement("aside");
+  document.createElement("section");
+  document.createElement("footer");
+}
+</script>
+</head>
+<body>
+  <header>页面头部</header>
+  <article>
+    <aside>侧边栏</aside>
+    <section>内容区域</section>
+  </article>
+  <footer>页面底部</footer>
+</body>
+</html>
