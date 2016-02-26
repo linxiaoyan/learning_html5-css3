@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>自定义数据与JS加载</title>
+
+<script>
+window.onload = function() {
+  var oDiv = document.getElementById('div1');
+
+  //以前的方法是用getAttribute()，兼容性问题
+  alert(oDiv.getAttribute('dave'));
+
+  //属性前必须加data-前缀
+  alert(oDiv.dataset.dave);
+  alert(oDiv.dataset.daveLin);
+
+  /*==================================================*/
+
+  /*
+  延迟加载JS
+
+  JS的加载会影响后面的内容加载
+  --很多浏览器都采用了并行加载JS，但还是会影响其他内容
+
+  Html5的defer和async
+  defer : 延迟加载，会按顺序执行，在onload执行前被触发
+  async : 异步加载，加载完就触发，有顺序问题
+
+  Labjs库--解决兼容性
+  */
+};
+</script>
+</head>
+<body>
+<div id="div1" dave="dave" data-dave="dave" data-dave-lin="dave-lin">div</div>
+</body>
+</html>
