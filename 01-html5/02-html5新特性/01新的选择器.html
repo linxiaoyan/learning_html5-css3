@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>新的选择器</title>
+
+<style>
+.box {width:100px; height:100px; margin:20px; background:blue;}
+</style>
+<script>
+window.onload = function() {
+  var oDiv = document.querySelector('.box');    //只能选择一组中的第一个元素
+  var oDiv2 = document.querySelector('[title=hello]');
+  var aDiv = document.querySelectorAll('.box'); //选择一组元素
+  var aDiv2 = document.getElementsByClassName('box');
+
+  oDiv2.style.background  = 'red';
+
+  //alert(oDiv.innerHTML);
+  //alert(aDiv.length);
+  //alert(aDiv2.length);
+
+  alert(oDiv.classList);
+
+  oDiv.classList.add('box4');
+  oDiv.classList.remove('box2');
+
+  //toggle 切换，存在就删除，没有就添加
+  oDiv.classList.toggle('box3');
+  oDiv.classList.toggle('box5');
+
+  alert(oDiv.classList);
+};
+</script>
+</head>
+<body>
+<div id="div1" class="box box2 box3">div1</div>
+<div class="box" title="hello">div2</div>
+</body>
+</html>
