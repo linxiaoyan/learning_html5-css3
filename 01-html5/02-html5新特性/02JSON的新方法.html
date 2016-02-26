@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JSON的新方法</title>
+  <script src="../../js/json2.js"></script>
+
+<script>
+  //eval 与 parse
+  //eval : 可以解析任何字符串变成JS
+  //parse : 只能解析JSON形式的字符串变成JS  (安全性要高一些)
+
+  /*
+  var str = 'function show(){alert(123)}';
+  eval(str);
+  show();
+  */
+
+  /*
+  var str = 'function show(){alert(123)}';
+  JSON.parse(str);
+  show();
+  */
+
+  var str = '{"name":"hello"}';   //一定是严格的JSON形式，name必须加引号
+  var json = JSON.parse(str);
+  alert(json.name);
+
+  /*
+  var json = {name : 'hello'};
+  var str = JSON.stringify(json);
+  alert(str);
+  */
+
+  /*================================================================*/
+
+  //新方法的应用：深拷贝
+  /*
+  var a = {name : 'hello'};
+  var b = a;
+  b.name = 'hi'; //b引用了a，修改b就等同修改a
+  alert( a.name );
+
+  //为了修改b时不影响a，如果属性值又是对象时需进行递归拷贝
+  b = {};
+  for(var attr in a){
+    b[attr] = a[attr];
+  }
+
+  b.name = 'hi';
+  alert( a.name );
+  */
+
+  var a = {name : { age : 100 }};
+  var str = JSON.stringify(a);
+  var b = JSON.parse(str);
+
+  b.name.age = 200;
+  alert(a.name.age);
+
+  /*================================================================*/
+
+  //浏览器兼容
+  //引入 json2.js
+
+</script>
+</head>
+<body>
+
+</body>
+</html>
