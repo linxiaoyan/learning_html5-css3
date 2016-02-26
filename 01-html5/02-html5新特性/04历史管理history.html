@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>历史管理history</title>
+
+<script>
+window.onload = function() {
+  //触发历史管理 : 1.通过跳转页面  2.hash  3.pushState
+
+  var oBtn = document.getElementById('btn1');
+  var oDiv = document.getElementById('div1');
+  var json = {};
+  var value = 0;
+
+  oBtn.onclick = function(){
+    var hashNum = Math.random();
+
+    json[hashNum] = value;
+    oDiv.innerHTML = value;
+    window.location.hash = hashNum;
+
+    value++;
+  };
+
+  window.onhashchange = function(){
+    oDiv.innerHTML = json[window.location.hash.substring(1)];
+  };
+
+  /*
+  历史管理
+  onhashchange : 改变hash值来管理
+  history :
+  --服务器下运行
+  --pushState : 三个参数：数据、标题、地址(可选)
+  --onpopstate事件 : 读取数据 event.state
+  --注意：网址是虚假的，需在服务器指定对应页面，不然刷新找不到页面
+  */
+};
+</script>
+</head>
+<body>
+<input type="button" value="递增" id="btn1">
+<div id="div1"></div>
+</body>
+</html>
