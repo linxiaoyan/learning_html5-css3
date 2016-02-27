@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>dataTransfer</title>
+
+<style>
+li {list-style:none; width:100px; height:30px; margin:10px; background:blue;}
+#div1 {width:100px; height:100px; margin:200px; background:red;}
+</style>
+<script>
+window.onload = function() {
+  /*
+  effectAllowed : 设置光标样式(none, copy, copyLink, copyMove, link, linkMove, move, all 和 uninitialized)
+  setDragImage : 三个参数（指定的元素，坐标X，坐标Y）
+  files : 获取外部拖拽的文件，返回一个filesList列表，filesList下有个type属性，返回文件的类型
+  */
+
+  var aLi = document.getElementsByTagName('li');
+  var oDiv = document.getElementById('div1');
+  var oImg = document.getElementsByTagName('img')[0];
+  var value = 0;
+
+  for(var i = 0; i < aLi.length; i++){
+    aLi[i].index = i;
+
+    aLi[i].ondragstart = function(ev){
+      var oEvent = ev || event;
+      oEvent.dataTransfer.setData('li', this.index);
+      oEvent.dataTransfer.effectAllowed = 'none';
+      oEvent.dataTransfer.setDragImage(oImg, 10, 10);
+      this.style.background = 'green';
+    };
+
+    aLi[i].ondrag = function() {
+      //document.title = value++;
+    };
+
+    aLi[i].ondragend = function() {
+      this.style.background = 'blue';
+    };
+  }
+
+  oDiv.ondragenter = function() {
+    this.style.background = 'pink';
+  };
+
+  oDiv.ondragover = function(ev){
+    var oEvent = ev || event;
+    this.innerHTML = value++;
+    oEvent.preventDefault();
+  };
+
+  oDiv.ondragleave = function(){
+    this.style.background = 'red';
+  };
+
+  oDiv.ondrop = function(){
+  };
+}
+</script>
+</head>
+<body>
+<ul>
+  <li draggable="true">a</li>
+  <li draggable="true">b</li>
+  <li draggable="true">c</li>
+</ul>
+<div id="div1"></div>
+<img style="display:inline-block; width:50px; height:50px; background:black;" />
+</body>
+</html>
