@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>dataTransfer拖放文件</title>
+
+<style>
+#div1 {width:200px; height:400px; background:blue;}
+</style>
+<script>
+window.onload = function(){
+  var oDiv = document.getElementById('div1');
+  var oSpan = oDiv.getElementsByTagName('span')[0];
+  var oUl = oDiv.getElementsByTagName('ul')[0];
+
+  oSpan.innerHTML = '将文件拖拽到此区域';
+
+  oDiv.ondragenter = function(){
+    oSpan.innerHTML = '可以释放鼠标了';
+  };
+
+  oDiv.ondragover = function(ev){
+    var oEvent = ev || event;
+    oEvent.preventDefault();
+  };
+
+  oDiv.ondragleave = function(){
+    oSpan.innerHTML = '将文件拖拽到此区域';
+  };
+
+  oDiv.ondrop = function(ev){
+    var oEvent = ev || event;
+    var fs = oEvent.dataTransfer.files;
+    var fd = new FileReader();
+
+    for (var i = 0; i < fs.length; i++) {
+      if(fs[i].type.indexOf('html') != -1) {
+        fd.readAsDataURL(fs[i]);
+
+        fd.onload = (function(i) {
+          var oLi = document.createElement('li');
+          oLi.innerHTML = fs[i].name;
+          oUl.appendChild(oLi);
+        })(i);
+      } else {
+        alert('请上传html文件');
+      }
+    }
+
+    oSpan.innerHTML = '将文件拖拽到此区域';
+
+    oEvent.preventDefault();
+  };
+};
+</script>
+</head>
+<body>
+<div id="div1">
+  <span></span>
+  <ul>
+  </ul>
+</div>
+</body>
+</html>
