@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>拖放</title>
+
+<style>
+li {list-style:none; width:100px; height:30px; margin:10px; background:blue;}
+#div1 {width:100px; height:100px; margin:200px; background:red;}
+</style>
+<script>
+window.onload = function(){
+  /*
+  1.拖放事件
+  draggable : 设置为true，元素就可以拖拽了
+
+  拖拽元素事件: 事件对象为被拖拽元素
+  --ondragstart : 开始拖拽时触发
+  --ondrag      : 拖拽过程中连续触发
+  --ondragend   : 拖拽结束时触发
+
+  目标元素事件: 事件对象为目标元素
+  --ondragenter : 进入目标元素触发，相当于onmouseover
+  --ondragover  : 在目标元素的区域内，连续触发
+  --ondragleave : 离开目标元素触发，相当于onmouseout
+  --drop : 在目标元素上释放鼠标触发
+
+  2.事件的执行顺序:
+  --drop不触发的时候
+   ondragstart --> ondrag --> ondragenter --> ondragover --> ondragleave --> ondragend
+  --drop触发的时候(ondragover的时候阻止默认事件)
+   ondragstart --> ondrag --> ondragenter --> ondragover --> ondrop --> ondragend
+
+  3.解决火狐下的问题
+  必须设置dataTransfer对象才可以拖拽除图片外的其他标签
+
+  dataTransfer对象:
+  --setData() : 设置数据key和value(必须是字符串)
+  --getData() : 获取数据，根据key值，获取对应的value
+  */
+
+  var aLi = document.getElementsByTagName('li');
+  var oDiv = document.getElementById('div1');
+  var value = 0;
+
+  for(var i = 0; i < aLi.length; i++){
+    aLi[i].index = i;
+
+    aLi[i].ondragstart = function(ev){
+      var oEvent = ev || event;
+      oEvent.dataTransfer.setData('li', this.index);
+      this.style.background = 'green';
+    };
+
+    aLi[i].ondrag = function() {
+      //document.title = value++;
+    };
+
+    aLi[i].ondragend = function() {
+      this.style.background = 'blue';
+    };
+  }
+
+  oDiv.ondragenter = function() {
+    this.style.background = 'pink';
+  };
+
+  oDiv.ondragover = function(ev){
+    var oEvent = ev || event;
+    this.innerHTML = value++;
+    oEvent.preventDefault();
+  };
+
+  oDiv.ondragleave = function(){
+    this.style.background = 'red';
+  };
+
+  oDiv.ondrop = function(){
+  };
+};
+</script>
+</head>
+<body>
+<ul>
+  <li draggable="true">a</li>
+  <li draggable="true">b</li>
+  <li draggable="true">c</li>
+</ul>
+<div id="div1"></div>
+</body>
+</html>
