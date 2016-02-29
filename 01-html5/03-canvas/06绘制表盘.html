@@ -25,7 +25,7 @@ window.onload = function() {
     var oSen = oDate.getSeconds();
 
     var oHoursValue = (-90 + oHours * 30 + oMin / 2) * Math.PI / 180;
-    var oMinValue = (-90 + oMin * 6) * Math.PI / 180;
+    var oMinValue = (-90 + oMin * 6 + oSen / 10) * Math.PI / 180;
     var oSenValue = (-90 + oSen * 6) * Math.PI / 180;
 
     oGC.clearRect(0, 0, oCan.width, oCan.height);
