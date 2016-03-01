@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>阴影</title>
+
+<style>
+body {background:orangered;}
+#c1 {background:white;}
+span {color:white;}
+</style>
+<script>
+window.onload = function() {
+  var oCan = document.getElementById('c1');
+  var oGC = oCan.getContext('2d');
+
+  oGC.font = '60px impact';
+  oGC.textBaseline = 'top';  //middle bottom
+
+  oGC.shadowOffsetX = -10;
+  oGC.shadowOffsetY = -10;
+  oGC.shadowBlur = 1;  //高斯模糊值
+
+  //alert(oGC.shadowColor);  //默认颜色：黑色透明
+  oGC.shadowColor = 'gray';
+
+  var w = oGC.measureText('兹拉坦').width;
+
+  oGC.fillText('兹拉坦', (oCan.width - w) / 2, (oCan.height - 60) / 2);
+};
+</script>
+</head>
+<body>
+<canvas id="c1" width="800px;" height="600px;">
+  <span>不支持canvas的浏览器</span>
+</canvas>
+</body>
+</html>
