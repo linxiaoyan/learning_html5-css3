@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>渐变</title>
+
+<style>
+body {background:orangered;}
+#c1 {background:white;}
+span {color:white;}
+</style>
+<script>
+window.onload = function() {
+  var oCan = document.getElementById('c1');
+  var oGC = oCan.getContext('2d');
+
+  //线性渐变
+  var obj = oGC.createLinearGradient(150, 100, 250, 200); //(150, 100)渐变起点，(250, 200)渐变终点
+
+  //添加渐变点，0表示起点，1表示终点
+  obj.addColorStop(0, 'red');
+  obj.addColorStop(0.5, 'yellow');
+  obj.addColorStop(1, 'blue');
+
+  oGC.fillStyle = obj;
+  oGC.fillRect(150, 100, 100, 100);
+
+  //放射性渐变
+  var obj2 = oGC.createRadialGradient(500, 200, 100, 500, 200, 150);
+
+  obj2.addColorStop(0, 'red');
+  obj2.addColorStop(0.5, 'yellow');
+  obj2.addColorStop(1, 'blue');
+
+  oGC.fillStyle = obj2;
+  oGC.fillRect(300, 0, 400, 400);
+};
+</script>
+</head>
+<body>
+<canvas id="c1" width="1200px;" height="600px;">
+  <span>不支持canvas的浏览器</span>
+</canvas>
+</body>
+</html>
