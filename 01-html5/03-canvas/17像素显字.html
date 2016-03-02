@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>像素显字</title>
+
+<style>
+body {background:orangered;}
+#c1 {background:white;}
+span {color:white;}
+</style>
+<script>
+window.onload = function() {
+  var oCan = document.getElementById('c1');
+  var oGC = oCan.getContext('2d');
+  var aLi = document.getElementsByTagName('li');
+
+  for(var i = 0; i < aLi.length; i++){
+    aLi[i].onclick = function() {
+      var str = this.innerHTML;
+      var fontHeight = 150;
+      var timer = null;
+      var iNow = 0;
+
+      clearInterval(timer);
+
+      oGC.clearRect(0, 0, oCan.width, oCan.height);
+
+      oGC.font = fontHeight + 'px impact';
+      oGC.textBaseline = 'top';
+      oGC.fillStyle = 'black';
+
+      var strWidth = oGC.measureText(str).width;
+
+      oGC.fillText(str, (oCan.width - strWidth) / 2, (oCan.height - fontHeight) / 2);
+
+      var oImg = oGC.getImageData((oCan.width - strWidth) / 2, (oCan.height - fontHeight) / 2, strWidth, fontHeight);
+      oGC.clearRect(0, 0, oCan.width, oCan.height);
+
+      var arr = randomArr(strWidth * fontHeight, strWidth * fontHeight / 10);
+      var newImg = oGC.createImageData(strWidth, fontHeight);
+
+      setInterval(function() {
+        for(var i = 0; i < arr[iNow].length; i++){
+          newImg.data[4 * arr[iNow][i]] = oImg.data[4 * arr[iNow][i]];
+          newImg.data[4 * arr[iNow][i] + 1] = oImg.data[4 * arr[iNow][i] + 1];
+          newImg.data[4 * arr[iNow][i] + 2] = oImg.data[4 * arr[iNow][i] + 2];
+          newImg.data[4 * arr[iNow][i] + 3] = oImg.data[4 * arr[iNow][i] + 3];
+        }
+
+        oGC.putImageData(newImg, (oCan.width - strWidth) / 2, (oCan.height - fontHeight) / 2);
+
+        if (iNow == (strWidth * fontHeight / 10 - 1)) {
+          iNow = 0;
+          clearInterval(timer);
+        } else {
+          iNow++;
+        }
+      }, 100);
+    };
+  }
+
+  function randomArr(iAll, iNow){
+    var arr = [];
+    var allArr = [];
+
+    for (var i = 0; i < iAll; i++){
+      arr.push(i);
+    }
+
+    for (var j = 0; j < iAll / iNow; j++) {
+      var newArr = [];
+
+      //随机从arr中拿掉iNow个数，并放到newArr中
+      for (var i = 0; i < iNow; i++) {
+        newArr.push(arr.splice(Math.floor(Math.random() * arr.length), 1));
+      }
+
+      allArr.push(newArr);
+    }
+
+    return allArr;
+  }
+};
+</script>
+</head>
+<body>
+<canvas id="c1" width="800px;" height="600px;">
+  <span>不支持canvas的浏览器</span>
+</canvas>
+<ul style="float:left; margin-right:10px; font-size:30px;">
+  <li>兹</li>
+  <li>拉</li>
+  <li>坦</li>
+</ul>
+</body>
+</html>
