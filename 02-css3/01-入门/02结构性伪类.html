@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>结构性伪类</title>
+
+<style>
+a {color:black;}
+
+li:nth-child(even) {background:orangered;}
+li:nth-child(odd) {background:skyblue;}
+li:nth-child(1) {background:yellow;}
+li:nth-child(3n) {background:blueviolet;}
+li:nth-last-child(1) {background:green;}
+
+/*
+h1:nth-child(2n-1) 在h1同级下的所有标签中查找序号为奇数且为h1的标签
+h1:nth-of-type(2n-1) 在h1同级下的所有h1标签中查找序号为奇数的标签
+*/
+#div1 h1:nth-child(2n-1) {background:red;}
+#div1 h1:nth-of-type(2n) {background:pink;}
+#div1 h1:nth-last-of-type(1) {background:purple;}
+
+#div1 p:nth-child(2n) {background:yellow;}
+#div1 p:nth-of-type(3n) {background:green;}
+
+/*
+first-child, last-child, first-of-type, last-of-type
+*/
+#div1 h1:first-child {background:black;}
+
+/*
+p *:only-of-type p标签中任意标签，该标签有且只有一个节点
+p *:only-child   p标签中只有一个节点，该节点为任意标签
+*/
+#div2 p *:only-of-type {background:blue;}
+#div2 p *:only-child {background:purple;}
+</style>
+</head>
+<body>
+<ul>
+  <li>1</li>
+  <li>2</li>
+  <li>3</li>
+  <li>4</li>
+  <li>5</li>
+  <li>6</li>
+  <li>7</li>
+  <li>8</li>
+  <li>9</li>
+</ul>
+<div id="div1">
+  <h1>h1</h1>
+  <h2>h2</h2>
+  <p>p1</p>
+  <h1>h1</h1>
+  <h2>h2</h2>
+  <p>p2</p>
+  <h1>h1</h1>
+  <h2>h2</h2>
+  <p>p3</p>
+  <p>p4</p>
+  <h1>h1</h1>
+  <p>p5</p>
+  <h1>h1</h1>
+  <p>p5</p>
+</div>
+<div id="div2">
+  <p><span>这是一个span标签</span></p>
+  <p><a>这是一个链接</a></p>
+  <p><span>这是一个span标签</span> <span>这是另一个span标签</span></p>
+  <p><span>这是一个span标签</span> <a href="#">这是一个链接</a></p>
+  <p><span>这是一个span标签</span> <a href="#">这是一个链接</a> <a href="#">这是另一个链接</a></p>
+</div>
+</body>
+</html>
