@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>伪类</title>
+
+<style>
+#div1 div {display:none; width:100px; height:100px; font-size:30px; color:#fff; text-align:center; background:#000;}
+/*div作为当前活动的目标元素时*/
+#div1 div:target {display:block;}
+
+input:disabled {background:lightskyblue;}
+
+label {float:left; position:relative; margin-right:5px; overflow:hidden;}
+label input{position:absolute; left:-20px; top:-20px;}
+span {float:left; width:50px; height:50px; border:3px solid #000;}
+input:checked~span {background:red;}
+
+/*文本新增伪类*/
+p {width:300px; padding:10px; border:1px solid #000; font:12px/30px "宋体";}
+p:first-line {background:yellow;}
+p:first-letter {font-size:30px;}
+p::selection {background:skyblue; color:#fff;}
+p:before {content:"Zlatan"; display:block; border:1px solid #000;}
+p:after {content:"Ibrahimovic";}
+
+.h1-blue {background:blue;}
+h1:not(.h1-blue) {background:red;}
+</style>
+</head>
+
+<body>
+<h1>h1</h1>
+<h1 class="h1-blue">h1</h1>
+
+<input type="text" value="请输入" disabled/>
+<br />
+
+<!--
+通过锚#div1定位到div1，此时div1是当前活动的目标元素
+-->
+<div id="div1">
+  <a href="#div1-1">div1</a>
+  <a href="#div1-2">div2</a>
+  <a href="#div1-2">div3</a>
+  <div id="div1-1">div1</div>
+  <div id="div1-2">div2</div>
+  <div id="div1-3">div3</div>
+</div>
+
+
+<!--
+模拟单选框
+--label被点击的时候，input同时被选中，此时再设置与input毗邻的span的背景色
+-->
+<div id="div2" style="position:absolute; top:300px;">
+  <label>
+    <input type="radio" name="tab"/>
+    <span></span>
+  </label>
+  <label>
+    <input type="radio" name="tab"/>
+    <span></span>
+  </label>
+  <label>
+    <input type="radio" name="tab"/>
+    <span></span>
+  </label>
+</div>
+
+
+<p style="position:absolute; top:400px;">
+  兹拉坦·伊布拉西莫维奇于1999年在马尔默足球俱乐部开始职业生涯。
+  2001年，转会至阿贾克斯足球俱乐部。同年入选国家队。2004年，加盟尤文图斯足球俱乐部。
+  2006年，加盟国际米兰足球俱乐部。2009年，加盟巴塞罗那足球俱乐部。2010年，转会至AC米兰足球俱乐部。
+  2012年，加盟巴黎圣日耳曼足球俱乐部。同年，获得国际足联金足奖。
+</p>
+
+</body>
+</html>
