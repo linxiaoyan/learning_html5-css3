@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>属性选择器</title>
+
+<style>
+li {margin:5px;}
+li[team~=madrid] {background:green;}
+li[team=madrid] {background:white;}
+li[team^=england] {background:red;}
+li[team$=mund] {background:yellow;}
+li[team*=manCity] {background:deepskyblue;}
+li[team|=italy] {background:skyblue;}
+</style>
+</head>
+<body>
+<ul>
+  <li team="madrid">皇马</li>
+  <li team="span madrid seven">C罗</li>
+  <li team="span madrid eleven">贝尔</li>
+  <li team="italy-inter thirty-two">维埃里</li>
+  <li team="italy-milan nine">因扎吉</li>
+  <li team="england-liverpool four">杰拉德</li>
+  <li team="germany-dortmund">多特蒙德</li>
+  <li team="england-manCity sixteen">阿奎罗</li>
+  <li team="italy">意大利</li>
+</ul>
+</body>
+</html>
