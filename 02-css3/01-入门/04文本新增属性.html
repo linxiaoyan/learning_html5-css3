@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>文本新增属性</title>
+
+<style>
+body {background:orangered;}
+div {width:150px; height:100px; font:30px/80px '微软雅黑'; text-align:center;}
+
+/*rgba*/
+.div1 {color:#fff; background:rgba(0, 0, 0, 0.3);}
+.div2 {color:rgba(255, 255, 255, 0.5); background:black;}
+
+/*文字阴影*/
+.div3 {text-shadow:-5px -10px 1px black;}
+.div4 {text-shadow:-5px -10px 1px red, 5px 10px 2px green, 1px 1px 5px yellow;}
+
+
+h1 {font:100px/200px '微软雅黑'; color:#000; background:#fff; transition:1s;}
+
+/*文字模糊*/
+h1:hover {color:rgba(0, 0, 0, 0); text-shadow:0 0 100px rgba(0, 0, 0, 0.5);}
+
+/*文字描边*/
+h2 {font:50px/100px '微软雅黑'; color:#000; background:#fff; -webkit-text-stroke:1px red;}
+
+/*文字排版*/
+span {width:100px; border:1px solid #000; font:14px/30px "宋体"; direction:rtl; unicode-bidi:bidi-override;}
+
+/*超出省略号*/
+p {width:500px; border:1px solid #000; font:14px/30px "宋体"; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+
+</style>
+</head>
+<body>
+<div class="div1">兹拉坦</div>
+<div class="div2">兹拉坦</div>
+<div class="div1 div3">兹拉坦</div>
+<div class="div1 div4">维埃里</div>
+<div style="text-shadow:4px 4px 4px #fff;">兹拉坦</div>
+
+<h1>维埃里</h1>
+<h2>维埃里</h2>
+<p>
+  <span>兹拉坦·伊布拉西莫维奇</span>于1999年在马尔默足球俱乐部开始职业生涯。
+  2001年，转会至阿贾克斯足球俱乐部。同年入选国家队。2004年，加盟尤文图斯足球俱乐部。
+  2006年，加盟国际米兰足球俱乐部。2009年，加盟巴塞罗那足球俱乐部。2010年，转会至AC米兰足球俱乐部。
+  2012年，加盟巴黎圣日耳曼足球俱乐部。同年，获得国际足联金足奖。
+</p>
+</body>
+</html>
