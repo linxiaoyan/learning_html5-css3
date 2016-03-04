@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>响应式布局</title>
+  <!--通过屏幕的分辨率引入不同的样式表-->
+  <!--
+  <link rel="stylesheet" type="text/css" href="indexa.css" media="screen and (min-width:800px)">
+  <link rel="stylesheet" type="text/css" href="indexb.css" media="screen and (min-width:600px) and (max-width:800px)">
+  <link rel="stylesheet" type="text/css" href="indexc.css" media="screen and (max-width:400px)">
+  -->
+
+  <!--通过portrait竖屏，landscape横屏引入不同的样式表-->
+  <!--
+  <link rel="stylesheet" media="all and (orientation:landscape)" href="indexa.css">
+  <link rel="stylesheet" media="all and (orientation:portrait)" href="indexb.css">
+  -->
+
+<style>
+/*内部样式，import的样式表要放在前面*/
+@import url("indexb.css") screen and (min-width:600px) and (max-width:800px);
+@media screen and (min-width:800px) {
+  .wrap {border:1px solid #000; font:14px/28px "宋体"; color:#000; text-indent:2em;
+         -webkit-column-count:4; -webkit-column-gap:30px;}
+}
+@media screen and (max-width:400px) {
+  .wrap {border:1px solid #000; font:16px/28px "宋体"; color:#000; text-indent:2em;}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p>兹拉坦·伊布拉西莫维奇于1999年在马尔默足球俱乐部开始职业生涯。
+    2001年，转会至阿贾克斯足球俱乐部。同年入选国家队。2004年，加盟尤文图斯足球俱乐部。
+    2006年，加盟国际米兰足球俱乐部。2009年，加盟巴塞罗那足球俱乐部。2010年，转会至AC米兰足球俱乐部。
+    2012年，加盟巴黎圣日耳曼足球俱乐部。同年，获得国际足联金足奖。</p>
+  <p>兹拉坦·伊布拉西莫维奇于1999年在马尔默足球俱乐部开始职业生涯。
+    2001年，转会至阿贾克斯足球俱乐部。同年入选国家队。2004年，加盟尤文图斯足球俱乐部。
+    2006年，加盟国际米兰足球俱乐部。2009年，加盟巴塞罗那足球俱乐部。2010年，转会至AC米兰足球俱乐部。
+    2012年，加盟巴黎圣日耳曼足球俱乐部。同年，获得国际足联金足奖。</p>
+  <p>兹拉坦·伊布拉西莫维奇于1999年在马尔默足球俱乐部开始职业生涯。
+    2001年，转会至阿贾克斯足球俱乐部。同年入选国家队。2004年，加盟尤文图斯足球俱乐部。
+    2006年，加盟国际米兰足球俱乐部。2009年，加盟巴塞罗那足球俱乐部。2010年，转会至AC米兰足球俱乐部。
+    2012年，加盟巴黎圣日耳曼足球俱乐部。同年，获得国际足联金足奖。</p>
+  <p>兹拉坦·伊布拉西莫维奇于1999年在马尔默足球俱乐部开始职业生涯。
+    2001年，转会至阿贾克斯足球俱乐部。同年入选国家队。2004年，加盟尤文图斯足球俱乐部。
+    2006年，加盟国际米兰足球俱乐部。2009年，加盟巴塞罗那足球俱乐部。2010年，转会至AC米兰足球俱乐部。
+    2012年，加盟巴黎圣日耳曼足球俱乐部。同年，获得国际足联金足奖。</p>
+  <p>兹拉坦·伊布拉西莫维奇于1999年在马尔默足球俱乐部开始职业生涯。
+    2001年，转会至阿贾克斯足球俱乐部。同年入选国家队。2004年，加盟尤文图斯足球俱乐部。
+    2006年，加盟国际米兰足球俱乐部。2009年，加盟巴塞罗那足球俱乐部。2010年，转会至AC米兰足球俱乐部。
+    2012年，加盟巴黎圣日耳曼足球俱乐部。同年，获得国际足联金足奖。</p>
+  <p>兹拉坦·伊布拉西莫维奇于1999年在马尔默足球俱乐部开始职业生涯。
+    2001年，转会至阿贾克斯足球俱乐部。同年入选国家队。2004年，加盟尤文图斯足球俱乐部。
+    2006年，加盟国际米兰足球俱乐部。2009年，加盟巴塞罗那足球俱乐部。2010年，转会至AC米兰足球俱乐部。
+    2012年，加盟巴黎圣日耳曼足球俱乐部。同年，获得国际足联金足奖。</p>
+</div>
+</body>
+</html>
