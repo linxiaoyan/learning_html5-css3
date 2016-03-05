@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>圆角</title>
+
+<style>
+/*
+border-radius: 1-4个数字 / 1-4个数字
+--前面是水平，后面是垂直
+--不给“/”则水平和垂直一样
+*/
+.box1 {width:200px; height:200px; margin:20px; border:1px solid #000; border-radius:20px}
+.box2 {width:200px; height:200px; margin:20px; border:1px solid #000; border-radius:20px 40px;}
+.box3 {width:200px; height:200px; margin:20px; border:1px solid #000; border-radius:20px 40px 60px;}
+.box4 {width:200px; height:200px; margin:20px; border:1px solid #000; border-radius:20px 40px 60px 80px;}
+.box5 {width:200px; height:200px; margin:20px; border:1px solid #000; border-radius:20px 40px 60px 80px / 10px 20px 30px 40px;}
+</style>
+</head>
+<body>
+<div class="box1"></div>
+<div class="box2"></div>
+<div class="box3"></div>
+<div class="box4"></div>
+<div class="box5"></div>
+</body>
+</html>
