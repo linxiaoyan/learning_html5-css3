@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>遮罩</title>
+
+<style>
+.box {
+  width:400px; height:600px; border:10px solid #000;
+  background:url(../image/vieri.jpg) no-repeat;
+  background-size:100% 100%;
+  -webkit-mask:url(../image/paris.png) no-repeat;
+  transition:1s;
+}
+.box:hover {-webkit-mask-position:100% 100%;}
+</style>
+</head>
+<body>
+<div class="box"></div>
+</body>
+</html>
