@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>背景</title>
+
+<style>
+/*
+多背景
+--逗号分开 background: url(a.jpg) 0 0, url(b.jpg) 0 100%;
+
+背景尺寸
+--background-size:x y
+--Cover 放大
+--Contain 缩小
+
+background-origin
+--border-box： 从border区域开始显示背景
+--padding-box：从padding区域开始显示背景
+--content-box：从content区域开始显示背景
+
+background-clip
+--border： 从border区域向外裁剪背景
+--padding：从padding区域向外裁剪背景
+--content：从content区域向外裁剪背景
+--no-clip：从border区域向外裁剪背景
+*/
+.box1, .box2, .box3 {overflow:hidden;}
+
+.box1 div {float:left; width:250px; height:200px; margin:10px; border:10px solid #000;}
+.box1 div:nth-child(1) {background:url(../image/paris.png) no-repeat; background-size:100% 100%;}
+.box1 div:nth-child(2) {background:url(../image/paris.png) no-repeat; background-size:cover;}
+.box1 div:nth-child(3) {background:url(../image/paris.png) no-repeat; background-size:contain;}
+.box1 div:nth-child(4) {
+  background:url(../image/paris.png) no-repeat, url(../image/paris.png) no-repeat 20px bottom;
+  background-size:contain, cover;
+}
+
+.box2 div {
+  float:left; width:150px; height:250px; padding:10px; margin:10px; border:10px solid rgba(0, 0, 0, 0.5);
+  background:url(../image/vieri.jpg) no-repeat;
+  background-size:cover;
+}
+.box2 div:nth-child(1) {background-origin:border-box;}
+.box2 div:nth-child(2) {background-origin:padding-box;}
+.box2 div:nth-child(3) {background-origin:content-box;}
+
+.box3 div {
+  float:left; width:150px; height:250px; padding:10px; margin:10px; border:10px solid rgba(0, 0, 0, 0.5);
+  background:url(../image/vieri.jpg) no-repeat;
+  background-size:cover;
+}
+.box3 div:nth-child(1) {background-clip:border-box;}
+.box3 div:nth-child(2) {background-clip:padding-box;}
+.box3 div:nth-child(3) {background-clip:content-box;}
+
+</style>
+</head>
+<body>
+<div class="box1">
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+</div>
+<div class="box2">
+  <div></div>
+  <div></div>
+  <div></div>
+</div>
+<div class="box3">
+  <div></div>
+  <div></div>
+  <div></div>
+</div>
+</body>
+</html>
