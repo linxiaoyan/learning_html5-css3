@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>径向渐变</title>
+
+<style>
+/*
+radial-gradient([<起点>]? [<形状> || <大小>,]? <点>, <点>…);
+--起点：可以是关键字（left,top,right,bottom），具体数值或百分比
+--形状：ellipse、circle
+--大小：具体数值或百分比，也可以是关键字（最近端，最近角，最远端，最远角，包含或覆盖 (closest-side, closest-corner, farthest-side, farthest-corner, contain or cover)）;
+注意firefox目前只支持关键字
+*/
+
+.box1, .box2 {overflow:hidden;}
+.box1 div {float:left; width:200px; height:200px; margin:10px; border:1px solid #000;}
+.box1 div:nth-child(1) {background:-webkit-radial-gradient(red, blue);}
+.box1 div:nth-child(2) {background:-webkit-radial-gradient(100px 50px, red, blue);}
+.box1 div:nth-child(3) {background:-webkit-radial-gradient(100px 50px, circle, red, blue);}
+
+.box2 div {float:left; width:300px; height:300px; margin:10px; border:1px solid #000;}
+.box2 div:nth-child(1) {background:-webkit-radial-gradient(100px 50px, closest-side, red, blue);}
+.box2 div:nth-child(2) {background:-webkit-radial-gradient(100px 50px, closest-corner, red, blue);}
+.box2 div:nth-child(3) {background:-webkit-radial-gradient(100px 50px, farthest-side, red, blue);}
+.box2 div:nth-child(4) {background:-webkit-radial-gradient(100px 50px, farthest-corner, red, blue);}
+.box2 div:nth-child(5) {background:-webkit-radial-gradient(100px 50px, contain, red, blue);}
+.box2 div:nth-child(6) {background:-webkit-radial-gradient(100px 50px, cover, red, blue);}
+</style>
+</head>
+<body>
+
+<div class="box1">
+  <div></div>
+  <div></div>
+  <div></div>
+</div>
+
+<div class="box2">
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+</div>
+
+</body>
+</html>
