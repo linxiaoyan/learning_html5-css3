@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>过渡</title>
+
+<style>
+/*
+transition-property  要运动的样式
+transition-duration  运动时间
+transition-delay     延迟时间
+transition-timing-function 运动形式
+--ease：（逐渐变慢）默认值
+--linear：（匀速）
+--ease-in：(加速)
+--ease-out：（减速）
+--ease-in-out：（先加速后减速）
+--cubic-bezier 贝塞尔曲线（ x1, y1, x2, y2 ）
+*/
+
+div {width:50px; height:50px; margin:5px; background:red;}
+div:hover {width:500px; height:100px; background:blue;}
+
+.box1 {transition:500ms}
+.box2 {transition:500ms 1s;}
+.box3 {transition:500ms 1s width;}
+.box4 {transition:4s 1s width ease-in;}
+.box5 {transition:5s width cubic-bezier(0.145, 1.295, 0.000, 1.610);}
+.box6 {transition:3s width, 2s height, 4s background;}
+.box7 {transition:3s width, 2s 1s height, 4s 3s background;}
+</style>
+</head>
+<body>
+<div class="box1"></div>
+<div class="box2"></div>
+<div class="box3"></div>
+<div class="box4"></div>
+<div class="box5"></div>
+<div class="box6"></div>
+<div class="box7"></div>
+</body>
+</html>
