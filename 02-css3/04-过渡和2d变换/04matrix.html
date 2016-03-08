@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>matrix</title>
+<style>
+/*
+matrix(a,b,c,d,e,f) 矩阵函数
+默认 matrix(1, 0, 0, 1, 0, 0);
+
+--通过矩阵实现缩放
+x轴缩放 a=x*a    c=x*c     e=x*e;
+y轴缩放 b=y*b   d=y*d     f=y*f;
+
+--通过矩阵实现位移
+x轴位移: e=e+x
+y轴位移: f=f+y
+
+--通过矩阵实现倾斜
+x轴倾斜: c=Math.tan(xDeg/180*Math.PI)
+y轴倾斜: b=Math.tan(yDeg/180*Math.PI)
+
+--通过矩阵实现旋转
+a=Math.cos(deg/180*Math.PI);
+b=Math.sin(deg/180*Math.PI);
+c=-Math.sin(deg/180*Math.PI);
+d=Math.cos(deg/180*Math.PI);
+
+变换兼容IE9以下IE版本只能通过矩阵来实现
+filter:progid:DXImageTransform.Microsoft.Matrix(M11=1, M12=0, M21=0, M22=1, SizingMethod='auto expand');
+IE下的矩阵没有E和F两个参数 M11==a; M12==c; M21==b; M22==d
+*/
+
+div {float:left; width:50px; height:50px; margin:20px; background:red; transition:2s;}
+
+.box1:hover {
+  -webkit-transform:matrix(1, 0, 0, 1, 50, 50);
+  filter:progid:DXImageTransform.Microsoft.Matrix(M11 = 1, M12 = 0, M21 = 0, M22 = 1, SizingMethod = 'auto expand');
+}
+
+.box2:hover {
+  transform:matrix(0.5, 0, 0, 0.2, 0, 0);
+  -webkit-transform:matrix(0.5, 0, 0, 0.2, 0, 0);
+  -moz-transform:matrix(0.5, 0, 0, 0.2, 0, 0);
+  filter:progid:DXImageTransform.Microsoft.Matrix(M11 = 0.5, M12 = 0, M21 = 0, M22 = 0.2, SizingMethod = 'auto expand');
+}
+
+.box3:hover {
+  transform:matrix(1, 0, 0.58, 1, 0, 0);
+  -webkit-transform:matrix(1, 0, 0.58, 1, 0, 0);
+  -moz-transform:matrix(1, 0, 0.58, 1, 0, 0);
+  filter:progid:DXImageTransform.Microsoft.Matrix(M11 = 1, M12 = 0.58, M21 = 0, M22 = 1, SizingMethod='auto expand');
+}
+
+.box4:hover {
+  transform:matrix(1, 0.58, 0, 1, 0, 0);
+  -webkit-transform:matrix(1, 0.58, 0, 1, 0, 0);
+  -moz-transform:matrix(1, 0.58, 0, 1, 0, 0);
+  filter:progid:DXImageTransform.Microsoft.Matrix(M11 = 1, M12 = 0, M21 = 0.58, M22 = 1, SizingMethod='auto expand');
+}
+
+.box5:hover {
+  transform:matrix(0.87, 0.5, -0.5, 0.87, 0, 0);
+  -webkit-transform:matrix(0.87, 0.5, -0.5, 0.87, 0, 0);
+  -moz-transform:matrix(0.87, 0.5, -0.5, 0.87, 0, 0);
+  filter:progid:DXImageTransform.Microsoft.Matrix(M11 = 0.87, M12 = -0.5, M21 = 0.5 , M22 = 0.87, SizingMethod='auto expand');
+}
+
+</style>
+</head>
+<body>
+<div class="box1">1</div>
+<div class="box2">2</div>
+<div class="box3">3</div>
+<div class="box4">4</div>
+<div class="box5">5</div>
+</body>
+</html>
